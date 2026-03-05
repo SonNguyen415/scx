@@ -1,0 +1,33 @@
+[package]
+name = "scx_orchestra"
+version = "2.4.8"
+edition = "2021"
+authors = ["Son Nguyen <snguye75@ucsc.edu>"]
+license = "GPL-2.0-only"
+repository = "https://github.com/sched-ext/scx"
+description = "Framework to implement sched_ext schedulers running in user space"
+
+[dependencies]
+anyhow = "1.0.65"
+plain = "0.2.3"
+libbpf-rs = "=0.26.0-beta.1"
+libc = "0.2.175"
+seccomp = "0.1"
+scx_cargo = { path = "../scx_cargo", version = "1.0.24" }
+shared_memory = "0.12"
+tarpc         = { version = "0.34", features = ["unix", "serde-transport", "serde-transport-bincode", "tokio1"] }
+tokio         = { version = "1", features = ["full"] }
+serde         = { version = "1", features = ["derive"] }
+bincode       = "1"
+
+[lib]
+name = "scx_orchestra"
+path = "src/lib.rs"
+include = [
+    "assets/bpf/intf.h",
+    "assets/bpf/main.bpf.c",
+    "assets/bpf.rs",
+]
+
+[lints.clippy]
+not_unsafe_ptr_arg_deref = "allow"

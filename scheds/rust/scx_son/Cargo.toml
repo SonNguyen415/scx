@@ -1,0 +1,35 @@
+[package]
+name = "scx_son"
+version = "1.0.18"
+authors = ["Son Nguyen <snguye75@ucsc.edu"]
+edition = "2021"
+description = "Yes"
+license = "GPL-2.0-only"
+
+[dependencies]
+anyhow = "1.0.65"
+plain = "0.2.3"
+clap = { version = "4.5.28", features = ["derive", "env", "unicode", "wrap_help"] }
+ctrlc = { version = "3.1", features = ["termination"] }
+libbpf-rs = "=0.26.0-beta.1"
+libc = "0.2.175"
+log = "0.4.17"
+ordered-float = "3.4.0"
+procfs = "0.18"
+serde = { version = "1.0.215", features = ["derive"] }
+scx_stats = { path = "../../../rust/scx_stats", version = "1.0.19" }
+scx_stats_derive = { path = "../../../rust/scx_stats/scx_stats_derive", version = "1.0.19" }
+scx_utils = { path = "../../../rust/scx_utils", version = "1.0.24" }
+scx_orchestra = { path = "../../../rust/scx_orchestra", version = "2.4.8" }
+simplelog = "0.12"
+tarpc         = { version = "0.34", features = ["unix", "serde-transport", "serde-transport-bincode", "tokio1"] }
+tokio         = { version = "1", features = ["full"] }
+shared_memory = "0.12"
+bincode       = "1"
+
+[build-dependencies]
+scx_cargo = { path = "../../../rust/scx_cargo", version = "1.0.24" }
+scx_orchestra = { path = "../../../rust/scx_orchestra", version = "2.4.8" }
+
+[features]
+enable_backtrace = []

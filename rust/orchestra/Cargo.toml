@@ -1,0 +1,17 @@
+[package]
+name = "orchestra"
+version = "0.1.0"
+edition = "2021"
+authors = ["Son Nguyen <snguye75@ucsc.edu"]
+license = "GPL-2.0-only"
+
+[[bin]]
+name = "orchestra"
+path = "src/main.rs"
+
+[dependencies]
+scx_orchestra = { path = "../scx_orchestra", version = "2.4.8" }
+tarpc         = { version = "0.34", features = ["unix", "serde-transport", "serde-transport-bincode", "tokio1"] }
+tokio         = { version = "1", features = ["full"] }
+futures       = "0.3"
+num_cpus      = "1"
